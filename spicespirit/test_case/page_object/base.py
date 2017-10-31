@@ -5,17 +5,17 @@ from time import sleep
 import unittest
 
 
-#基本层
+# 基本层
 class Base(object):
         
-    def __init__(self, driver, base_url = 'http://mail.163.com'):
-    self.driver = driver
-    self.base_url = base_url
-    self.timeout = 30
+    def __init__(self, driver, base_url='http://mail.163.com'):
+        self.driver = driver
+        self.base_url = base_url
+        self.timeout = 30
 
     def _open(self, url):
         url_ = self.base_url + url
-        #print(url_)
+        # print(url_)
         self.driver.maximize_window()
         self.driver.get(url_)
         sleep(2)
@@ -24,7 +24,7 @@ class Base(object):
     def open(self):
         self._open(self.url)
     
-    #*参数个数不是固定的（By.ID, 'kw'）
+    # 参数个数不是固定的（By.ID, 'kw'）
     def find_element(self, *loc):
         return self.driver.find_element(*loc)
 
